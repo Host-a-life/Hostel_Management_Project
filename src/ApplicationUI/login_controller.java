@@ -10,7 +10,7 @@ import javafx.scene.control.Button;
 public class login_controller {
 
     Main m = new Main();
-    Admin_Database db = new Admin_Database();
+    Admin_DB db = new Admin_DB();
     @FXML
     private TextField password;
 

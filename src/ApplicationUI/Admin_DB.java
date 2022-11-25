@@ -1,15 +1,12 @@
 package ApplicationUI;
 
-import com.mysql.cj.jdbc.Driver;
-
 import java.sql.*;
-import java.util.Scanner;
 
-public class Admin_Database
+public class Admin_DB
 {
     public Connection con;
 
-    public Admin_Database() {
+    public Admin_DB() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hostel_management", "root", "Oneplus666");
@@ -54,9 +51,6 @@ public class Admin_Database
             ResultSet rs = stm.executeQuery(query);
             if (rs.next())
             {
-               // System.out.println("________________________");
-               // System.out.println("Admin password = " + rs.getInt(1) + "\nAdmin username = " + rs.getString(2));
-                //System.out.println("________________________");
                 admin.setPass(rs.getString(2));
                 admin.setName(rs.getString(1));
             }

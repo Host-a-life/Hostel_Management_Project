@@ -7,13 +7,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class Main extends Application {
     private static Stage stg;
     public static void make_admin()
     {
-        Admin_Database db = new Admin_Database();
+        Admin_DB db = new Admin_DB();
         db.write();
     }
     @Override

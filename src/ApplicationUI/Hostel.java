@@ -1,5 +1,10 @@
+package ApplicationUI;
+
+import java.sql.Struct;
+
 public class Hostel
 {
+    Student student = new Student();
     private String name;
     private String location;
 
@@ -12,6 +17,10 @@ public class Hostel
     {
         this.name = n;
         this.location = loc;
+    }
+    public void register_student(String n,String r)
+    {
+        student.register_student(n,r);
     }
 
 
