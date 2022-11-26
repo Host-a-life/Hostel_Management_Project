@@ -19,4 +19,10 @@ public class Hostel {
         Integer fees = s.calculatefees();
         return fees;
     }
+    Boolean payfees(Integer amount,String accno)
+    {
+        boolean feestatus;
+        feestatus = s.payfees(amount,accno);
+        return feestatus;
+    }
 }
