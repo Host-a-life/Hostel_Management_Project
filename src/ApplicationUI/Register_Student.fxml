@@ -23,6 +23,7 @@
                </image>
             </ImageView>
             <Label fx:id="error_label" layoutX="60.0" layoutY="223.0" style="-fx-background-color: #F60000;" />
+            <Button fx:id="return_button" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#return_back" prefHeight="6.0" prefWidth="86.0" text="Return back" />
          </children>
       </AnchorPane>
    </center>

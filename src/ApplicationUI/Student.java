@@ -44,11 +44,11 @@ public class Student
         this.id = id;
     }
 
-    public void register_student(String n,String r)
+    public void register_student(String n, String r, int room, int seat)
     {
         this.name= n;
         this.roll_num=r;
-        studentDb.write(name,roll_num);
+        studentDb.write(name,roll_num,room,seat);
     }
 
 }

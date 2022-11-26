@@ -22,14 +22,16 @@ public class Student_DB
 
     }
 
-    public void write(String name,String roll_num)
+    public void write(String name, String roll_num, int room, int seat)
     {
         try
         {
-            String query = "INSERT INTO students (name ,roll_no) VALUES (?,?)";
+            String query = "INSERT INTO students (name ,roll_no,room_id,seat_no) VALUES (?,?,?,?)";
             PreparedStatement stmt = con.prepareStatement(query);
             stmt.setString(1, name);
             stmt.setString(2, roll_num);
+            stmt.setInt(3, room);
+            stmt.setInt(4, seat);
             int rows = stmt.executeUpdate();
             if (rows > 0)
             {
@@ -43,7 +45,8 @@ public class Student_DB
         }
     }
 
-    public Student read()
+
+        public Student read(int id)
     {
         Student student = new Student();
         Statement stm;
@@ -51,12 +54,14 @@ public class Student_DB
         {
 
             stm = con.createStatement();
-            String query = "Select * from students";
+            String query = "Select * from students where id = "+id;
             ResultSet rs = stm.executeQuery(query);
             if (rs.next())
             {
-                student.setId(rs.getInt(1));
-                student.setName(rs.getString(2));
+                student.setId(rs.getInt(0));
+                student.setName(rs.getString(1));
+                System.out.println(student.getId());
+                return student;
             }
 
         }
@@ -64,7 +69,6 @@ public class Student_DB
         {
             e.printStackTrace();
         }
-
         return student;
     }
     public void close_connection()
@@ -78,5 +82,18 @@ public class Student_DB
             e.printStackTrace();
         }
     }
+    public void update(String s_id,String r_id,String seat) {
+        int seat_no = Integer.parseInt(seat);
+        try {
+            String query = "UPDATE students set room_id = "+r_id+", seat_no = " + seat_no +" where id = "+s_id ;
+            PreparedStatement stmt = con.prepareStatement(query);
+            int rows = stmt.executeUpdate();
+            if (rows > 0) {
+                System.out.println("Student is added...");
+            }
 
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

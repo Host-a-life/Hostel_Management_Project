@@ -30,9 +30,10 @@
                   <Image url="@../Images/taxi-welcome-door.gif" />
                </image>
             </ImageView>
-            <Button layoutX="425.0" layoutY="177.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="107.0" text="Allocate Room" />
-            <Button layoutX="64.0" layoutY="279.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="110.0" text="Room Availability" />
-            <Button layoutX="425.0" layoutY="279.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="107.0" text="Manage Mess" />
+            <Button layoutX="425.0" layoutY="177.0" mnemonicParsing="false" onAction="#Allocate_Room_Screen" prefHeight="46.0" prefWidth="107.0" text="Allocate Room" />
+            <Button layoutX="64.0" layoutY="279.0" mnemonicParsing="false" onAction="#Room_Availability_Screen" prefHeight="46.0" prefWidth="110.0" text="Room Availability" />
+            <Button layoutX="425.0" layoutY="279.0" mnemonicParsing="false" onAction="#Manage_Mess_Screen" prefHeight="46.0" prefWidth="107.0" text="Manage Mess" />
+            <Button layoutX="12.0" layoutY="361.0" mnemonicParsing="false" onAction="#return_back" text="return back" />
             </children>
         </AnchorPane>
    </center>

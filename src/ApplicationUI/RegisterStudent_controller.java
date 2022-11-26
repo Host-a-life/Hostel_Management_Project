@@ -10,10 +10,12 @@ import javafx.scene.control.Button;
 
 public class RegisterStudent_controller
 {
-
+    Main m = new Main();
     @FXML
     private Button button;
 
+    @FXML
+    private Button return_button;
     @FXML
     private TextField Roll_num;
 
@@ -31,7 +33,11 @@ public class RegisterStudent_controller
         else
         {
             Hostel hostel = new Hostel();
-            hostel.register_student(name.getText(), Roll_num.getText());
+            hostel.register_student(name.getText(), Roll_num.getText(),0,0);
         }
+        error_label.setText("");
+    }
+    public void return_back() throws IOException {
+        m.changeScene("welcome.fxml");
     }
 }
