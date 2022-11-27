@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class logincontroller {
 
-    Hostel h = new Hostel();
+    //Hostel h = new Hostel();
     Main m = new Main();
     private String ID,PW;
     @FXML private Button button;
@@ -18,7 +18,7 @@ public class logincontroller {
     public void onbuttonpressed(ActionEvent event) throws IOException {
         boolean status;
 
-        status = h.authentication(id.getText().toString(),password.getText().toString());
+        status = Hostel.getInstance().authentication(id.getText().toString(),password.getText().toString());
         //button.setVisible(false);
         //label.setVisible(true);
         if(status == true)

@@ -1,28 +1,41 @@
 package ApplicationUI;
 
 public class Hostel {
-    Student s = new Student();
+    //Student s = new Student();
+    private static Hostel instance = null;
+    private Hostel()
+    {
+
+    }
+    public static synchronized Hostel getInstance()
+    {
+        if(instance == null)
+        {
+            instance = new Hostel();
+        }
+        return instance;
+    }
     public void mainfunction()
     {
         System.out.println("hello");
     }
     public boolean authentication(String id, String pw)
     {
-        return s.authentication(id,pw);
+        return Student.getInstance().authentication(id,pw);
     }
     public boolean addtofees(String item)
     {
-        return s.addtofees(item);
+        return Student.getInstance().addtofees(item);
     }
     Integer calculatefees()
     {
-        Integer fees = s.calculatefees();
+        Integer fees = Student.getInstance().calculatefees();
         return fees;
     }
     Boolean payfees(Integer amount,String accno)
     {
         boolean feestatus;
-        feestatus = s.payfees(amount,accno);
+        feestatus = Student.getInstance().payfees(amount,accno);
         return feestatus;
     }
 }

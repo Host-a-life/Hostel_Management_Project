@@ -1,6 +1,5 @@
 package ApplicationUI;
 
-import ApplicationUI.Hostel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,7 +10,7 @@ import java.io.IOException;
 
 public class Main extends Application {
     private static Stage stg;
-    static Hostel obj = new Hostel();
+    //static Hostel obj = new Hostel();
 
     public static Integer getStudid() {
         return studid;
@@ -28,7 +27,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         try {
             stg = primaryStage;
-            Parent root = FXMLLoader.load(getClass().getResource("welcome.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("signin.fxml"));
             Scene scene = new Scene(root, 600, 400);
             primaryStage.setTitle("HMS");
             primaryStage.setScene(scene);
