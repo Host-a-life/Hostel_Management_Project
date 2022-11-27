@@ -42,10 +42,7 @@ public class Allocate_Room_controller
     Student_DB student_db = new Student_DB();
     Room_DB room_db = new Room_DB();
     Student s = new Student();
-    public Allocate_Room_controller()
-    {
-
-    }
+    public Allocate_Room_controller(){}
 
     public void check_room_availability()
     {
@@ -65,42 +62,39 @@ public class Allocate_Room_controller
         {
             s_no.setText("Please enter seat number!");
         }
-        else
-        {
+        else {
+            boolean check = false;
             int i = Integer.parseInt(s_no.getText());
-            s =  student_db.read(i);
+            check = hostel.check_student(s_id.getText());
             System.out.println(s.getName());
             System.out.println(s.getId());
-            if (s.equals(null))
+            if (check == false)
             {
-                r_id.setText("Student has not been registered!");
-            }
-
-
-            int room[] = new int[]{};
-
-            int id = Integer.parseInt(r_id.getText());
-            room = hostel.check_room_availability(id);
-            boolean check = false;
-            check = hostel.check_room(s_id.getText());
-            if (check == true)
-                seat1.setText("This User has already existed room!");
-            else
+                rid.setText("Student has not been registered!");
+            } else
             {
+                rid.setText("");
+                int room[] = new int[]{};
+
+                int id = Integer.parseInt(r_id.getText());
+                room = hostel.check_room_availability(id);
+                check = hostel.check_room(s_id.getText());
+                if (check == true)
+                    seat1.setText("This User has already existed room!");
+                else {
 
 
-                seat1.setText("");
-                if (room[i - 1] == 1) {
-                    seat1.setText("This Seat Is Already Occupied");
-                } else {
-                    student_db.update(s_id.getText(), r_id.getText(), s_no.getText());
-                    room_db.update(s_id.getText(), r_id.getText(), s_no.getText());
-                    seat1.setText("Seat has been successfully allocated");
+                    seat1.setText("");
+                    if (room[i - 1] == 1) {
+                        seat1.setText("This Seat Is Already Occupied");
+                    } else {
+                        hostel.Allocate_Room(s_id.getText(), r_id.getText(), s_no.getText());
+                        seat1.setText("Seat has been successfully allocated");
+                    }
                 }
             }
         }
-
-        }
+    }
         public void return_back() throws IOException {
             m.changeScene("welcome.fxml");
         }

@@ -45,6 +45,29 @@ public class Student_DB
         }
     }
 
+        public boolean check_student(String id)
+    {
+            Student student = new Student();
+            Statement stm;
+            try
+            {
+
+                stm = con.createStatement();
+                String query = "Select * from students";
+                ResultSet rs = stm.executeQuery(query);
+                while (rs.next())
+                {
+                    if (rs.getString("id").equals(id))
+                        return true;
+                }
+
+            }
+            catch (SQLException e)
+            {
+                e.printStackTrace();
+            }
+            return false;
+        }
 
         public Student read(int id)
     {

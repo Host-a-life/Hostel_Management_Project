@@ -26,16 +26,20 @@ public class RegisterStudent_controller
     private TextField name;
 
     public void register_student(javafx.event.ActionEvent actionEvent)throws IOException {
-        if (name.getText().isEmpty() || Roll_num.getText().isEmpty())
+        if (name.getText().isEmpty() || name.getText() == null)
         {
-            error_label.setText("Error: Kindly enter details!");
+            error_label.setText("Kindly enter details!");
+        }
+        if (Roll_num.getText().isEmpty() || Roll_num.getText() == null)
+        {
+            error_label.setText("Kindly enter details!");
         }
         else
         {
+            error_label.setText("");
             Hostel hostel = new Hostel();
             hostel.register_student(name.getText(), Roll_num.getText(),0,0);
         }
-        error_label.setText("");
     }
     public void return_back() throws IOException {
         m.changeScene("welcome.fxml");

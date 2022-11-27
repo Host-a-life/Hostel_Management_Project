@@ -63,6 +63,29 @@ public class Room_DB
             System.out.println(e);
         }
     }
+    public boolean check_room_id(String id)
+    {
+        Statement stm;
+        try
+        {
+
+            stm = con.createStatement();
+            String query = "Select * from room";
+            ResultSet rs = stm.executeQuery(query);
+            while (rs.next())
+            {
+                if (rs.getString("id").equals(id))
+                    return true;
+            }
+
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
     public void update(String s_id,String r_id,String seat)
     {
         int seat_no = Integer.parseInt(seat);
@@ -90,7 +113,7 @@ public class Room_DB
         {
 
             stm = con.createStatement();
-            String query = "Select * from room where id = "+i;
+            String query = "Select * from room where roll_no = "+i;
             ResultSet rs = stm.executeQuery(query);
             if (rs.next())
             {

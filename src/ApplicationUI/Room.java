@@ -40,6 +40,10 @@ public class Room
 
         return room;
     }
+    public boolean check_room_id(String id)
+    {
+        return room_db.check_room_id(id);
+    }
     public boolean check_room(String id)
     {
         return room_db.reading_student_in_seats(id);

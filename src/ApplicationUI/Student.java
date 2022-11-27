@@ -7,6 +7,7 @@ public class Student
     private  int id;
 
     Student_DB studentDb = new Student_DB();
+    Room_DB room_db = new Room_DB();
     public Student()
     {
         this.name = "0";
@@ -43,7 +44,15 @@ public class Student
     public void setId(int id) {
         this.id = id;
     }
-
+    public boolean check_student(String id)
+    {
+        return studentDb.check_student(id);
+    }
+    public void Allocate_Room(String id, String room_id, String seat_num)
+    {
+        studentDb.update(id, room_id, seat_num);
+        room_db.update(id,room_id,seat_num);
+    }
     public void register_student(String n, String r, int room, int seat)
     {
         this.name= n;

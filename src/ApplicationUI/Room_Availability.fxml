@@ -11,12 +11,13 @@
       <AnchorPane prefHeight="400.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="64.0" layoutY="78.0" text="Enter room id" />
-            <Button layoutX="113.0" layoutY="151.0" mnemonicParsing="false" onAction="#check_room_availability" text="Enter" />
+            <Button layoutX="115.0" layoutY="164.0" mnemonicParsing="false" onAction="#check_room_availability" text="Enter" />
             <TextField fx:id="room_id" layoutX="64.0" layoutY="106.0" />
             <Button fx:id="rbutton" layoutX="8.0" layoutY="360.0" mnemonicParsing="false" onAction="#return_back" text="return back" />
             <Label fx:id="seat1" layoutX="384.0" layoutY="98.0" />
             <Label fx:id="seat2" layoutX="384.0" layoutY="132.0" />
             <Label fx:id="seat3" layoutX="384.0" layoutY="168.0" />
+            <Label fx:id="error_label" layoutX="64.0" layoutY="141.0" />
          </children>
       </AnchorPane>
    </top>
