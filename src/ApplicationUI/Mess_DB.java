@@ -128,7 +128,7 @@ public class Mess_DB {
     }
     public Room read(int i)
     {
-        Room room = new Room();
+      //  Room room = new Room();
         Statement stm;
         try
         {
@@ -138,10 +138,10 @@ public class Mess_DB {
             ResultSet rs = stm.executeQuery(query);
             if (rs.next())
             {
-                room.setId(rs.getInt(1));
-                room.setSeat1(rs.getString(2));
-                room.setSeat2(rs.getString(3));
-                room.setSeat3(rs.getString(4));
+                Room.getInstance().setId(rs.getInt(1));
+                Room.getInstance().setSeat1(rs.getString(2));
+                Room.getInstance().setSeat2(rs.getString(3));
+                Room.getInstance().setSeat3(rs.getString(4));
             }
 
         }
@@ -150,7 +150,7 @@ public class Mess_DB {
             e.printStackTrace();
         }
 
-        return room;
+        return Room.getInstance();
     }
     public boolean reading_student_in_seats(String id)
     {

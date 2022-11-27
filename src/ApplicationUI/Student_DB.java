@@ -47,7 +47,7 @@ public class Student_DB
 
         public boolean check_student(String id)
     {
-            Student student = new Student();
+           // Student student = new Student();
             Statement stm;
             try
             {
@@ -71,7 +71,7 @@ public class Student_DB
 
         public Student read(int id)
     {
-        Student student = new Student();
+    //    Student student = new Student();
         Statement stm;
         try
         {
@@ -81,10 +81,10 @@ public class Student_DB
             ResultSet rs = stm.executeQuery(query);
             if (rs.next())
             {
-                student.setId(rs.getInt(0));
-                student.setName(rs.getString(1));
-                System.out.println(student.getId());
-                return student;
+               Student.getInstance().setId(rs.getInt(0));
+                Student.getInstance().setName(rs.getString(1));
+                System.out.println(Student.getInstance().getId());
+                return Student.getInstance();
             }
 
         }
@@ -92,7 +92,7 @@ public class Student_DB
         {
             e.printStackTrace();
         }
-        return student;
+        return Student.getInstance();
     }
     public void close_connection()
     {

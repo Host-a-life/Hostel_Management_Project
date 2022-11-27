@@ -10,21 +10,24 @@ public class Room
     private String seat2;
     private String seat3;
 
-    public Room()
+    private static Room instance = null;
+
+    private Room()
     {
-        this.id = 0;
-        this.seat1="0";
-        this.seat2="0";
-        this.seat3="0";
+
+    }
+    public static Room getInstance()
+    {
+
+        if (instance == null)
+        {
+            instance = new Room();
+        }
+        return instance;
     }
 
-    public Room(int id, String seat1, String seat2, String seat3)
-    {
-        this.id = id;
-        this.seat1 = seat1;
-        this.seat2 = seat2;
-        this.seat3 = seat3;
-    }
+
+
 
     public int[] check_room_availability(int id)
     {

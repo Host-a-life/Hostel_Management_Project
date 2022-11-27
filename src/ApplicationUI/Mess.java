@@ -7,18 +7,20 @@ public class Mess
     private String item_name;
     private int item_price;
 
-    public Mess()
-    {
-        this.item_id = 0;
-        this.item_name = "0";
-        this.item_price = 0;
-    }
+    private static Mess instance = null;
 
-    public Mess(int item_id, String item_name, int item_price)
+    private Mess()
     {
-        this.item_id = item_id;
-        this.item_name = item_name;
-        this.item_price = item_price;
+
+    }
+    public static Mess getInstance()
+    {
+
+        if (instance == null)
+        {
+            instance = new Mess();
+        }
+        return instance;
     }
     public void add_item(String name,int price)
     {

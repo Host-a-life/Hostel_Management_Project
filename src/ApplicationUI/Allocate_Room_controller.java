@@ -41,7 +41,7 @@ public class Allocate_Room_controller
     Hostel hostel = new Hostel();
     Student_DB student_db = new Student_DB();
     Room_DB room_db = new Room_DB();
-    Student s = new Student();
+   // Student s = new Student();
     public Allocate_Room_controller(){}
 
     public void check_room_availability()
@@ -66,8 +66,8 @@ public class Allocate_Room_controller
             boolean check = false;
             int i = Integer.parseInt(s_no.getText());
             check = hostel.check_student(s_id.getText());
-            System.out.println(s.getName());
-            System.out.println(s.getId());
+            System.out.println(Student.getInstance().getName());
+            System.out.println(Student.getInstance().getId());
             if (check == false)
             {
                 rid.setText("Student has not been registered!");

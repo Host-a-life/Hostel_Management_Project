@@ -6,21 +6,32 @@ public class Student
     private String roll_num;
     private  int id;
 
-    Student_DB studentDb = new Student_DB();
-    Room_DB room_db = new Room_DB();
-    public Student()
+    private static Student instance = null;
+
+    private Student()
     {
-        this.name = "0";
-        this.roll_num = "0";
-        this.id = 0;
+
+    }
+    public static Student getInstance()
+    {
+
+        if (instance == null)
+        {
+            instance = new Student();
+        }
+            return instance;
     }
 
-    public Student(int id,String name,String roll_num )
-    {
-        this.name = name;
-        this.id = id;
-        this.roll_num = roll_num;
-    }
+    Student_DB studentDb = new Student_DB();
+    Room_DB room_db = new Room_DB();
+
+
+ //   public Student(int id,String name,String roll_num )
+   // {
+   //     this.name = name;
+   //     this.id = id;
+  //      this.roll_num = roll_num;
+  //  }
     public String getName() {
         return name;
     }
