@@ -39,7 +39,7 @@ public class Mess_controller
     private Button return_button;
 
     Main m = new Main();
-    Hostel hostel = new Hostel();
+   // Hostel hostel = new Hostel();
     public void add_item()
     {
         boolean check = false;
@@ -56,7 +56,7 @@ public class Mess_controller
             label_item_add_name.setText("");
             label_item_add_price.setText("");
             int price = Integer.parseInt(text_item_add_price.getText());
-            check = hostel.check_item(text_item_add_name.getText());
+            check = Hostel.getInstance().check_item(text_item_add_name.getText());
             if (check == true)
             {
                 label_item_add_name.setText("This Item already exits in Mess!");
@@ -64,7 +64,7 @@ public class Mess_controller
             else
             {
                 label_item_add_name.setText("");
-                hostel.add_item(text_item_add_name.getText(), price);
+                Hostel.getInstance().add_item(text_item_add_name.getText(), price);
             }
         }
     }
@@ -86,9 +86,9 @@ public class Mess_controller
             int item_price = Integer.parseInt(text_item_up_price.getText());
 
 
-            check = hostel.check_item_id(item_id);
+            check = Hostel.getInstance().check_item_id(item_id);
             if (check == true) {
-                hostel.update_item(item_id, item_price);
+                Hostel.getInstance().update_item(item_id, item_price);
                 label_item_update_id.setText("The Item is successfully updated!");
             } else {
                 label_item_update_id.setText("The item with this id doesn't exists");
@@ -107,7 +107,7 @@ public class Mess_controller
             int id = Integer.parseInt(text_item_del_id.getText());
 
             label_item_del_id.setText("");
-            check = hostel.check_item_id(id);
+            check = Hostel.getInstance().check_item_id(id);
             if(check == false)
             {
                 label_item_del_id.setText("Item with this id doesn't exist!");
@@ -115,7 +115,7 @@ public class Mess_controller
             else
             {
                 label_item_del_id.setText("Item is successfully removed!");
-                hostel.remove_item(id);
+                Hostel.getInstance().remove_item(id);
             }
 
         }

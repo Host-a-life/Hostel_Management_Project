@@ -41,7 +41,7 @@ public class Fees {
                     try
                     {
                         Class.forName("com.mysql.cj.jdbc.Driver");
-                        Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hmsdb","root","1234");
+                        Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hostel_management","root","Oneplus666");
                         Statement stmt = con.createStatement();
                         ResultSet rs = stmt.executeQuery("select * from mess");
                         while(rs.next())
@@ -71,7 +71,7 @@ public class Fees {
                     try
                     {
                         Class.forName("com.mysql.cj.jdbc.Driver");
-                        Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hmsdb","root","1234");
+                        Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hostel_management","root","Oneplus666");
                         Statement stmt = con.createStatement();
                         ResultSet rs = stmt.executeQuery("select * from student");
                         while(rs.next())
@@ -93,7 +93,7 @@ public class Fees {
 
                     //..................................................
                     Class.forName("com.mysql.cj.jdbc.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hmsdb", "root", "1234");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hostel_management", "root", "Oneplus666");
                     String sql = "UPDATE student SET fees = ? WHERE id = ?";
 
                     PreparedStatement statement = con.prepareStatement(sql);
@@ -124,7 +124,7 @@ public class Fees {
         try
         {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hmsdb","root","1234");
+            Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hostel_management","root","Oneplus666");
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("select * from student");
             while(rs.next())
@@ -158,7 +158,7 @@ public class Fees {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hmsdb", "root", "1234");
+            Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hostel_management", "root", "Oneplus666");
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("select * from bank");
             while (rs.next()) {
@@ -185,7 +185,7 @@ public class Fees {
             try
             {
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hmsdb", "root", "1234");
+                Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hostel_management", "root", "Oneplus666");
                 String sql1 = "UPDATE bank SET balance = ? WHERE accno = ?";
                 String sql2 = "UPDATE student SET fees = ? WHERE id = ?";
 

@@ -30,7 +30,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         try {
             stg = primaryStage;
-            Parent root = FXMLLoader.load(getClass().getResource("login_admin.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("Starting_Screen.fxml"));
             Scene scene = new Scene(root, 600, 400);
             primaryStage.setTitle("Host-A-Life");
             primaryStage.setScene(scene);

@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class RoomAvailability_controller
 {
-    Hostel hostel = new Hostel();
+    //Hostel hostel = new Hostel();
     Main m = new Main();
     @FXML
     private Label error_label;
@@ -40,7 +40,7 @@ public class RoomAvailability_controller
             error_label.setText("");
             boolean check = false;
             int id = Integer.parseInt(room_id.getText());
-            check = hostel.check_room_id(room_id.getText());
+            check = Hostel.getInstance().check_room_id(room_id.getText());
             if(check == false)
             {
                 seat3.setText("");
@@ -48,7 +48,7 @@ public class RoomAvailability_controller
                 seat1.setText("The Room with this id doesn't exist!");
             }
             else {
-                room = hostel.check_room_availability(id);
+                room = Hostel.getInstance().check_room_availability(id);
                 if (room[0] == 0) {
                     seat1.setText("Seat 1 is free");
                 }
