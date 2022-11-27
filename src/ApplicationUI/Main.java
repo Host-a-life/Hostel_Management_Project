@@ -10,8 +10,11 @@ import java.io.IOException;
 
 public class Main extends Application {
     private static Stage stg;
-    //static Hostel obj = new Hostel();
-
+    public static void make_admin()
+    {
+        Admin_DB db = new Admin_DB();
+        db.write();
+    }
     public static Integer getStudid() {
         return studid;
     }
@@ -27,13 +30,15 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         try {
             stg = primaryStage;
-            Parent root = FXMLLoader.load(getClass().getResource("signin.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("login_admin.fxml"));
             Scene scene = new Scene(root, 600, 400);
-            primaryStage.setTitle("HMS");
+            primaryStage.setTitle("Host-A-Life");
             primaryStage.setScene(scene);
             primaryStage.show();
+            root.requestFocus();
         } catch (Exception e) {
             e.printStackTrace();
+
         }
     }
 
@@ -43,6 +48,7 @@ public class Main extends Application {
         Scene scene = new Scene(pane,600,400);
         stg.setScene(scene);
         //stg.getScene().setRoot(pane);
+        pane.requestFocus();
     }
 
     public static void main(String[] args) {
