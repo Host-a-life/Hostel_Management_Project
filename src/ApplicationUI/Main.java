@@ -15,11 +15,22 @@ public class Main extends Application {
         Admin_DB db = new Admin_DB();
         db.write();
     }
+    public static Integer getStudid() {
+        return studid;
+    }
+
+    public static void setStudid(Integer studid) {
+        Main.studid = studid;
+    }
+
+    private static Integer studid = null;
+
+
     @Override
     public void start(Stage primaryStage) {
         try {
             stg = primaryStage;
-            Parent root = FXMLLoader.load(getClass().getResource("login_admin.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("Starting_Screen.fxml"));
             Scene scene = new Scene(root, 600, 400);
             primaryStage.setTitle("Host-A-Life");
             primaryStage.setScene(scene);
@@ -33,12 +44,16 @@ public class Main extends Application {
 
 
     public void changeScene(String fxml) throws IOException {
-        Parent pane = FXMLLoader.load(getClass().getResource(fxml));
-        stg.getScene().setRoot(pane);
+        Parent pane = FXMLLoader.load(Main.class.getResource(fxml));
+        Scene scene = new Scene(pane,600,400);
+        stg.setScene(scene);
+        //stg.getScene().setRoot(pane);
         pane.requestFocus();
     }
 
     public static void main(String[] args) {
         launch(args);
+        //System.out.println("hello");
+        //obj.mainfunction();
     }
 }

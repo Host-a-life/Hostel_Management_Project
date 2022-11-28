@@ -28,15 +28,12 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="4619a2aa-8279-4b05-8f4d-14a32d18225c">
-      <console name="HMS_DB" type="STANDARD" schema="mysql" session="Main" />
+    <connection id="6ca053ea-ebe8-4bd8-9b45-104cb31dd7bf">
+      <console name="HMSDB" type="STANDARD" schema="mysql" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
-  </component>
-  <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-actions connection-id="4619a2aa-8279-4b05-8f4d-14a32d18225c" dataset="hostel_management.admin" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -67,9 +64,9 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="4619a2aa-8279-4b05-8f4d-14a32d18225c" active="true" signed="true">
+      <connection id="6ca053ea-ebe8-4bd8-9b45-104cb31dd7bf" active="true" signed="true">
         <database>
-          <name value="HMS_DB" />
+          <name value="HMSDB" />
           <description value="" />
           <database-type value="MYSQL" />
           <config-type value="BASIC" />
@@ -78,12 +75,12 @@
           <driver-library value="" />
           <driver value="" />
           <url-type value="DATABASE" />
-          <host value="127.0.0.1" />
+          <host value="localhost" />
           <port value="3306" />
           <database value="mysql" />
           <type value="USER_PASSWORD" />
           <user value="root" />
-          <deprecated-pwd value="T25lcGx1czY2Ng==" />
+          <deprecated-pwd value="MTIzNA==" />
         </database>
         <properties>
           <auto-commit value="false" />

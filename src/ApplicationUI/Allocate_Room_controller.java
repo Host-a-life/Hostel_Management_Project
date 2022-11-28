@@ -38,7 +38,8 @@ public class Allocate_Room_controller
     private Button r_button;
 
     Main m = new Main();
-    Hostel hostel = new Hostel();
+//    Hostel hostel = new Hostel();
+
     Student_DB student_db = new Student_DB();
     Room_DB room_db = new Room_DB();
    // Student s = new Student();
@@ -65,7 +66,7 @@ public class Allocate_Room_controller
         else {
             boolean check = false;
             int i = Integer.parseInt(s_no.getText());
-            check = hostel.check_student(s_id.getText());
+            check = Hostel.getInstance().check_student(s_id.getText());
             System.out.println(Student.getInstance().getName());
             System.out.println(Student.getInstance().getId());
             if (check == false)
@@ -77,8 +78,8 @@ public class Allocate_Room_controller
                 int room[] = new int[]{};
 
                 int id = Integer.parseInt(r_id.getText());
-                room = hostel.check_room_availability(id);
-                check = hostel.check_room(s_id.getText());
+                room = Hostel.getInstance().check_room_availability(id);
+                check = Hostel.getInstance().check_room(s_id.getText());
                 if (check == true)
                     seat1.setText("This User has already existed room!");
                 else {
@@ -88,7 +89,7 @@ public class Allocate_Room_controller
                     if (room[i - 1] == 1) {
                         seat1.setText("This Seat Is Already Occupied");
                     } else {
-                        hostel.Allocate_Room(s_id.getText(), r_id.getText(), s_no.getText());
+                        Hostel.getInstance().Allocate_Room(s_id.getText(), r_id.getText(), s_no.getText());
                         seat1.setText("Seat has been successfully allocated");
                     }
                 }

@@ -37,8 +37,8 @@ public class RegisterStudent_controller
         else
         {
             error_label.setText("");
-            Hostel hostel = new Hostel();
-            hostel.register_student(name.getText(), Roll_num.getText(),0,0);
+          //  Hostel hostel = new Hostel();
+            Hostel.getInstance().register_student(name.getText(), Roll_num.getText(),0,0);
         }
     }
     public void return_back() throws IOException {

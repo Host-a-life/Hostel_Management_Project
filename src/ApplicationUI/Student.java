@@ -12,26 +12,37 @@ public class Student
     {
 
     }
-    public static Student getInstance()
+    public static synchronized Student getInstance()
     {
-
-        if (instance == null)
+        if(instance == null)
         {
             instance = new Student();
         }
-            return instance;
+        return instance;
     }
 
     Student_DB studentDb = new Student_DB();
     Room_DB room_db = new Room_DB();
 
-
- //   public Student(int id,String name,String roll_num )
-   // {
-   //     this.name = name;
-   //     this.id = id;
-  //      this.roll_num = roll_num;
-  //  }
+    public boolean authentication(String id, String pw)
+    {
+        return Authenticate.getInstance().authentication(id,pw);
+    }
+    public boolean addtofees(String item)
+    {
+        return Fees.getInstance().addtofees(item);
+    }
+    Integer calculatefees()
+    {
+        Integer fees = Fees.getInstance().calculatefees();
+        return fees;
+    }
+    Boolean payfees(Integer amount,String accno)
+    {
+        boolean feestatus;
+        feestatus = Fees.getInstance().payfees(amount,accno);
+        return feestatus;
+    }
     public String getName() {
         return name;
     }
@@ -69,6 +80,4 @@ public class Student
         this.name= n;
         this.roll_num=r;
         studentDb.write(name,roll_num,room,seat);
-    }
-
-}
+    }}

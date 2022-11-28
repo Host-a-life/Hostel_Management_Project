@@ -1,21 +1,47 @@
 package ApplicationUI;
 
-public class Hostel
-{
-    // Student = new Student.getInstance();
+public class Hostel {
+    //Student s = new Student();
     private String name;
     private String location;
-
-    Hostel()
+    private static Hostel instance = null;
+    private Hostel()
     {
         this.name = "\0";
         this.location = "\0";
     }
-    Hostel(String n,String loc)
+    public static synchronized Hostel getInstance()
     {
-        this.name = n;
-        this.location = loc;
+        if(instance == null)
+        {
+            instance = new Hostel();
+        }
+        return instance;
     }
+    public void mainfunction()
+    {
+        System.out.println("hello");
+    }
+    public boolean authentication(String id, String pw)
+    {
+        return Student.getInstance().authentication(id,pw);
+    }
+    public boolean addtofees(String item)
+    {
+        return Student.getInstance().addtofees(item);
+    }
+    Integer calculatefees()
+    {
+        Integer fees = Student.getInstance().calculatefees();
+        return fees;
+    }
+    Boolean payfees(Integer amount,String accno)
+    {
+        boolean feestatus;
+        feestatus = Student.getInstance().payfees(amount,accno);
+        return feestatus;
+    }
+
     //Check room Availability Use-case 1
     public int[] check_room_availability(int id)
     {
@@ -23,11 +49,11 @@ public class Hostel
     }
     public boolean check_room_id(String id)
     {
-       return Room.getInstance().check_room_id(id);
+        return Room.getInstance().check_room_id(id);
     }
     public boolean check_student(String id)
     {
-       return Student.getInstance().check_student(id);
+        return Student.getInstance().check_student(id);
     }
     public boolean check_room(String id)
     {
@@ -65,7 +91,5 @@ public class Hostel
     {
         return Mess.getInstance() .check_item_id(id);
     }
-
-
 
 }
