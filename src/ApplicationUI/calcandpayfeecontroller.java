@@ -68,7 +68,10 @@ public class calcandpayfeecontroller {
     void logout(ActionEvent event) throws IOException {
         m.changeScene("signin.fxml");
     }
-
+    public void return_button(ActionEvent event)throws IOException
+    {
+        m.changeScene("options.fxml");
+    }
     @FXML
     void initialize() {
         assert button1 != null : "fx:id=\"button1\" was not injected: check your FXML file 'calcandpayfee.fxml'.";

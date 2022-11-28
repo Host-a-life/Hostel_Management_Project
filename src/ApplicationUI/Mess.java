@@ -24,7 +24,7 @@ public class Mess {
     }
 
     private Hashtable<String, Integer> itemNprice = new Hashtable<String, Integer>();
-
+    private Hashtable<Integer, String> idNname = new Hashtable<Integer, String>();
     public Hashtable<String, Integer> itemNpricetablereturner()
     {
         String itemname;
@@ -47,6 +47,8 @@ public class Mess {
         }
         return itemNprice;
     }
+
+
     public void add_item(String name,int price)
     {
         mess_db.add_item(name,price);

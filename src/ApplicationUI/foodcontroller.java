@@ -80,6 +80,6 @@ public class foodcontroller {
     }
     @FXML
     void logout(ActionEvent event) throws IOException {
-        m1.changeScene("signin.fxml");
+        m1.changeScene("options.fxml");
     }
 }

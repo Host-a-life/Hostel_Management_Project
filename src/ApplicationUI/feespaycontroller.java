@@ -49,6 +49,10 @@ public class feespaycontroller {
     void logout(ActionEvent event) throws IOException {
         m.changeScene("signin.fxml");
     }
+    public void return_button(ActionEvent event)throws IOException
+    {
+        m.changeScene("calcandpayfee.fxml");
+    }
 
     @FXML
     void initialize() {

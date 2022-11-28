@@ -1,11 +1,12 @@
 package ApplicationUI;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
+import java.util.Hashtable;
+import java.util.Set;
 
 public class Mess_controller
 {
@@ -37,7 +38,8 @@ public class Mess_controller
     private Button update;
     @FXML
     private Button return_button;
-
+    @FXML
+    private TableView<items> table;
     Main m = new Main();
    // Hostel hostel = new Hostel();
     public void add_item()
@@ -65,6 +67,7 @@ public class Mess_controller
             {
                 label_item_add_name.setText("");
                 Hostel.getInstance().add_item(text_item_add_name.getText(), price);
+
             }
         }
     }
@@ -90,6 +93,7 @@ public class Mess_controller
             if (check == true) {
                 Hostel.getInstance().update_item(item_id, item_price);
                 label_item_update_id.setText("The Item is successfully updated!");
+
             } else {
                 label_item_update_id.setText("The item with this id doesn't exists");
             }
@@ -124,6 +128,29 @@ public class Mess_controller
     public void return_back()throws IOException
     {
         m.changeScene("welcome.fxml");
+    }
+    @FXML
+    void initialize() {
+        //assert itemname != null : "fx:id=\"itemname\" was not injected: check your FXML file 'mess.fxml'.";
+        //assert itemprice != null : "fx:id=\"itemprice\" was not injected: check your FXML file 'mess.fxml'.";
+        //assert table != null : "fx:id=\"table\" was not injected: check your FXML file 'mess.fxml'.";
+
+        Hashtable itemNprice = Mess.getInstance().itemNpricetablereturner();
+
+        TableColumn<items, String> itemname=new TableColumn<>("Item Name");
+        TableColumn<items, String> itemprice=new TableColumn<>("Item Price");
+        itemname.setCellValueFactory(new PropertyValueFactory<>("itemname"));
+        itemprice.setCellValueFactory(new PropertyValueFactory<>("itemprice"));
+
+        table.getColumns().add(itemname);
+        table.getColumns().add(itemprice);
+
+        Set<String> setofkeys = itemNprice.keySet();
+
+        for(String key : setofkeys)
+        {
+            table.getItems().add(new items(key,itemNprice.get(key).hashCode()));
+        }
     }
 
 }
